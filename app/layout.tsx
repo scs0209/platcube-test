@@ -20,8 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <SideBar />
-          <div className="absolute left-[76px]">{children}</div>
+          <main className="w-[1920px]">
+            <SideBar />
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

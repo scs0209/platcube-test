@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { getClient } from "@/lib/client";
 import {
   SEE_HOSPITAL_NOTICE_INFO,
@@ -20,5 +21,9 @@ export default async function HomePage() {
 
   console.log(JSON.stringify(staticsInfo, null, 2));
 
-  return <main>HomePage</main>;
+  return (
+    <section className="absolute left-[76px] w-[1844px]">
+      <Header />
+    </section>
+  );
 }
