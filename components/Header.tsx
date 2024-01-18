@@ -35,7 +35,9 @@ const Header = () => {
           alt="avatar"
           width={100}
           height={100}
-          className="h-8 w-8 rounded-md"
+          className={`border-2 rounded-md h-8 w-8 ${
+            showDropDown ? "border-blue-500" : "border-transparent"
+          }`}
           onClick={toggleDropDown}
         />
         {showDropDown && <DropDown closeDropdown={handleClickOutside} />}
