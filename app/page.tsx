@@ -1,72 +1,21 @@
 import { getClient } from "@/lib/client";
-import { gql } from "@apollo/client";
-
-const query = gql`
-  query SeeHospitalNoticeInfo($take: Int, $cursor: Int) {
-    seeNotices(take: $take, cursor: $cursor) {
-      noticeList {
-        createdAt
-        creatorImg
-        name
-        ntc_id
-        rank
-        text
-        title
-      }
-      totalLength
-    }
-  }
-`;
-
-const query2 = gql`
-  query SeeSchedule($searchDate: String!) {
-    seeSchedule(searchDate: $searchDate) {
-      roomName
-      drName
-      drRank
-      subDrUsed
-      isOffDay
-      offStartHour
-      offStartMin
-      offEndHour
-      offEndMin
-      startHour
-      startMin
-      endHour
-      endMin
-      lunchBreak
-      lbStartHour
-      lbStartMin
-      lbEndHour
-      lbEndMin
-    }
-  }
-`;
-
-const query3 = gql`
-  query SeeStatisticsInfo {
-    seeStatistics {
-      byWeekNumberCount {
-        weekNumber
-        count
-      }
-      manCount
-      womanCount
-    }
-  }
-`;
+import {
+  SEE_HOSPITAL_NOTICE_INFO,
+  SEE_SCHEDULE,
+  SEE_STATISTICS_INFO,
+} from "@/lib/query";
 
 export default async function HomePage() {
   const { data, error } = await getClient().query({
-    query,
+    query: SEE_HOSPITAL_NOTICE_INFO,
     variables: { take: 10, cursor: 0 },
   });
   const { data: scheduleData } = await getClient().query({
-    query: query2,
+    query: SEE_SCHEDULE,
     variables: { searchDate: "2022-01-01" },
   });
   const { data: staticsInfo } = await getClient().query({
-    query: query3,
+    query: SEE_STATISTICS_INFO,
   });
 
   console.log(JSON.stringify(staticsInfo, null, 2));
