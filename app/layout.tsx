@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <main className="w-[1920px]">
+          <main className="w-[1920px] max-h-screen">
             <SideBar />
             {children}
           </main>

@@ -75,7 +75,7 @@ const menuItems: { items: MenuItem[]; className?: string }[] = [
 
 const SideBar = () => {
   return (
-    <div className="h-screen top-0 left-0 absolute w-[76px] bg-[#0E2044] text-white flex flex-col items-center">
+    <div className="h-full top-0 left-0 absolute w-[76px] bg-[#0E2044] text-white flex flex-col items-center">
       {menuItems.map((group, idx) => (
         <div key={idx} className={group.className}>
           {group.items.map((menu, idx) => (
