@@ -9,6 +9,7 @@ import { NoticeData } from "@/lib/interface";
 import { SEE_HOSPITAL_NOTICE_INFO } from "@/lib/query";
 import { Sheet } from "lucide-react";
 import PaginationBtn from "./PaginationBtn";
+import NoticeSelect from "./NoticeSelect";
 
 const NoticeSection = () => {
   const [take, setTake] = useState(10);
@@ -20,17 +21,9 @@ const NoticeSection = () => {
     }
   );
 
-  console.log((page - 1) * take);
-  const handleSelectChange = (event: any) => {
-    setTake(Number(event.target.value));
-    setPage(1);
-  };
-
   const totalLength = data?.seeNotices.totalLength;
   const totalPages = Math.ceil((totalLength || 0) / take);
   const options = Array.from({ length: totalLength || 0 }, (_, i) => i + 1);
-
-  console.log(page, totalPages);
 
   return (
     <section className="h-[540px] overflow-y-auto px-8 py-4">
@@ -66,17 +59,14 @@ const NoticeSection = () => {
             {totalLength}
             <Sheet className="text-[#CACBD4]" />
           </span>
-          <select
+          <NoticeSelect
             value={take}
-            onChange={handleSelectChange}
-            className="border-[1px] border-[#F9F9F9] w-16 h-8"
-          >
-            {options.map((value) => (
-              <option key={value} value={value}>
-                {value}개
-              </option>
-            ))}
-          </select>
+            options={options}
+            onChange={(value) => {
+              setTake(value);
+              setPage(1);
+            }}
+          />
         </div>
         <PaginationBtn page={page} setPage={setPage} totalPages={totalPages} />
       </div>

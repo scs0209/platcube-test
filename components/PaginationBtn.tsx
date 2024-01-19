@@ -1,4 +1,5 @@
-import React from "react";
+import Button from "./Button";
+import NoticeSelect from "./NoticeSelect";
 
 interface Props {
   page: number;
@@ -15,52 +16,22 @@ const PaginationBtn = ({ page, totalPages, setPage }: Props) => {
     setPage((prev) => Math.min(prev + 1, totalPages));
   const handleLastPage = () => setPage(totalPages);
 
-  const handlePageChange = (event: any) => {
-    setPage(Number(event.target.value));
-  };
-
   return (
     <div className="flex gap-2 text-[#B3B3B3] items-center">
-      <button
-        onClick={handleFirstPage}
-        className="border-[1px] border-[#F9F9F9] w-8 h-8"
-        disabled={page === 0}
-      >
-        {"<<"}
-      </button>
-      <button
-        onClick={handlePreviousPage}
-        className="border-[1px] border-[#F9F9F9] w-8 h-8"
-        disabled={page === 0}
-      >
-        {"<"}
-      </button>
+      <Button onClick={handleFirstPage} disabled={page === 1} label={"<<"} />
+      <Button onClick={handlePreviousPage} disabled={page === 1} label={"<"} />
       <span>페이지 </span>
-      <select
-        value={page}
-        onChange={handlePageChange}
-        className="border-[1px] border-[#F9F9F9] w-16 h-8"
-      >
-        {pages.map((value) => (
-          <option key={value} value={value}>
-            {value}
-          </option>
-        ))}
-      </select>
-      <button
+      <NoticeSelect value={page} options={pages} onChange={setPage} />
+      <Button
         onClick={handleNextPage}
         disabled={page >= totalPages}
-        className="border-[1px] border-[#F9F9F9] w-8 h-8"
-      >
-        {">"}
-      </button>
-      <button
+        label={">"}
+      />
+      <Button
         onClick={handleLastPage}
         disabled={page >= totalPages}
-        className="border-[1px] border-[#F9F9F9] w-8 h-8"
-      >
-        {">>"}
-      </button>
+        label={">>"}
+      />
     </div>
   );
 };
