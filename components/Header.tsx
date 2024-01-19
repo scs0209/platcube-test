@@ -12,8 +12,8 @@ const Header = () => {
     setShowDropDown(false);
   };
 
-  const toggleDropDown = (event: any) => {
-    event.stopPropagation();
+  const toggleDropDown = (e: any) => {
+    e.stopPropagation();
     setShowDropDown(!showDropDown);
   };
 

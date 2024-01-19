@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import NoticeSection from "@/components/NoticeSection";
+import NoticeSection from "@/components/Notice/NoticeSection";
 import { getClient } from "@/lib/client";
 import {
   SEE_HOSPITAL_NOTICE_INFO,
