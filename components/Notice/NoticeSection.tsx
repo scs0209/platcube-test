@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { useSuspenseQuery } from "@apollo/client";
+import { Sheet } from "lucide-react";
 
 import { NoticeData } from "@/lib/interface";
 import { SEE_HOSPITAL_NOTICE_INFO } from "@/lib/query";
-import { Sheet } from "lucide-react";
 import PaginationBtn from "./PaginationBtn";
 import NoticeSelect from "./NoticeSelect";
 
@@ -52,7 +52,7 @@ const NoticeSection = () => {
           </div>
         </div>
       ))}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-2 border-[#EFEFEF]">
         <div className="flex items-center gap-4">
           <span className="flex gap-4">
             <span className="text-[#B3B3B3]">번호</span> 1 - {take} of{" "}

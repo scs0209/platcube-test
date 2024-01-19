@@ -41,3 +41,10 @@ export interface Schedule {
 export interface ScheduleData {
   seeSchedule: Schedule[];
 }
+
+export interface TimePeriod {
+  start: number;
+  end: number;
+  bgColor: string;
+  text: string;
+}
