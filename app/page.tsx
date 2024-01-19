@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import NoticeSection from "@/components/NoticeSection";
 import { getClient } from "@/lib/client";
 import {
   SEE_HOSPITAL_NOTICE_INFO,
@@ -19,11 +20,12 @@ export default async function HomePage() {
     query: SEE_STATISTICS_INFO,
   });
 
-  console.log(JSON.stringify(staticsInfo, null, 2));
+  console.log(JSON.stringify(data, null, 2));
 
   return (
     <section className="absolute left-[76px] w-[1844px]">
       <Header />
+      <NoticeSection />
     </section>
   );
 }

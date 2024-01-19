@@ -72,6 +72,7 @@ const menuItems: { items: MenuItem[]; className?: string }[] = [
     className: "flex flex-col h-full justify-end space-y-4 mb-4",
   },
 ];
+
 const SideBar = () => {
   return (
     <div className="h-screen top-0 left-0 absolute w-[76px] bg-[#0E2044] text-white flex flex-col items-center">

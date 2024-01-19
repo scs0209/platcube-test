@@ -8,7 +8,7 @@ interface Props {
 const DropDown = ({ closeDropdown }: Props) => {
   return (
     <div onClick={closeDropdown} className="fixed inset-0 z-10">
-      <div className="absolute z-10 top-16 right-4 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+      <div className="absolute z-10 top-18 right-6 bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-60">
         <div className="px-4 py-3 text-sm text-gray-900 ">
           <div className="flex items-center gap-2 text-[16px]">
             <UserCircle className="w-5 h-5" />내 프로필
