@@ -48,3 +48,20 @@ export interface TimePeriod {
   bgColor: string;
   text: string;
 }
+
+export interface ByWeekNumberCount {
+  __typename: string;
+  weekNumber: number;
+  count: number;
+}
+
+export interface SeeStatisticsInfo {
+  __typename: string;
+  byWeekNumberCount: ByWeekNumberCount[];
+  manCount: number;
+  womanCount: number;
+}
+
+export interface Statistics {
+  seeStatistics: SeeStatisticsInfo;
+}

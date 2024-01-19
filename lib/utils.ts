@@ -61,7 +61,7 @@ const createPeriodForOffDay = (
   const offStart = schedule.offStartMin || schedule.startHour;
   const offEnd = schedule.offEndMin || schedule.endHour;
   const text = hour === offStart ? "휴진" : "";
-  return createPeriod(offStart, offEnd, "bg-red-200", text);
+  return createPeriod(offStart, offEnd, "bg-[#FDF0E9]", text);
 };
 
 export const getPeriod = (hour: number, schedule: Schedule): TimePeriod => {
@@ -77,7 +77,7 @@ export const getPeriod = (hour: number, schedule: Schedule): TimePeriod => {
     return createPeriod(
       schedule.lbStartHour,
       schedule.lbEndHour,
-      "bg-yellow-200",
+      "bg-[#FFF6E8]",
       "점심"
     );
   }

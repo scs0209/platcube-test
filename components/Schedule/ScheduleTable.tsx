@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const timePeriods: TimePeriod[] = [
-  { start: 0, end: 12, bgColor: "bg-blue-200", text: "오전" },
-  { start: 12, end: 24, bgColor: "bg-blue-200", text: "오후" },
+  { start: 0, end: 12, bgColor: "bg-[#E9F3FF]", text: "오전" },
+  { start: 12, end: 24, bgColor: "bg-[#E9F3FF]", text: "오후" },
 ];
 
 const ScheduleTable = ({ selectedDate, data }: Props) => {

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import NoticeSection from "@/components/Notice/NoticeSection";
 import ScheduleSection from "@/components/Schedule/ScheduleSection";
+import StatisticSection from "@/components/Statistic/StatisticSection";
 import { getClient } from "@/lib/client";
 import {
   SEE_HOSPITAL_NOTICE_INFO,
@@ -28,6 +29,7 @@ export default async function HomePage() {
       <Header />
       <NoticeSection />
       <ScheduleSection />
+      <StatisticSection />
     </section>
   );
 }
