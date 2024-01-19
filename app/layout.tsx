@@ -1,10 +1,50 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localfont from "next/font/local";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import SideBar from "@/components/SideBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const apple = localfont({
+  src: [
+    {
+      path: "../public/fonts/AppleSDGothicNeoH.ttf",
+      weight: "900",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoEB.ttf",
+      weight: "800",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoB.ttf",
+      weight: "700",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoSB.ttf",
+      weight: "600",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoM.ttf",
+      weight: "500",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoR.ttf",
+      weight: "400",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoL.ttf",
+      weight: "300",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoT.ttf",
+      weight: "200",
+    },
+    {
+      path: "../public/fonts/AppleSDGothicNeoUL.ttf",
+      weight: "100",
+    },
+  ],
+  variable: "--font-apple",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +58,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={apple.variable}>
         <Providers>
-          <main className="w-[1920px] max-h-screen">
+          <main className="w-[1920px] max-h-screen font-apple">
             <SideBar />
             {children}
           </main>

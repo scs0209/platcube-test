@@ -16,6 +16,9 @@ const config: Config = {
       spacing: {
         "18": "4.5rem",
       },
+      fontFamily: {
+        apple: ["var(--font-apple)"],
+      },
     },
   },
   plugins: [],
