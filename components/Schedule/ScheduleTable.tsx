@@ -16,10 +16,10 @@ const ScheduleTable = ({ selectedDate, data }: Props) => {
     <table className="border-collapse border-[1px] border-[#EFEFEF] w-full">
       <thead>
         <tr>
-          <th className="border-[1px] border-[#EFEFEF]">
+          <th className="border-[1px] border-[#EFEFEF] h-[39px]">
             {formatDate(selectedDate)}
           </th>
-          {Array.from({ length: 24 }, (_, i) => (
+          {Array.from({ length: 25 }, (_, i) => (
             <th key={i} className="border-[1px] border-[#EFEFEF]">{`${i
               .toString()
               .padStart(2, "0")}`}</th>
@@ -29,16 +29,16 @@ const ScheduleTable = ({ selectedDate, data }: Props) => {
       <tbody>
         {data?.seeSchedule.map((schedule, index) => (
           <tr key={index}>
-            <td className="flex flex-col border-[1px] border-[#EFEFEF]">
+            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[86px]">
               {schedule.roomName}
               <span>{`${schedule.drName} ${schedule.drRank}`}</span>
             </td>
-            {Array.from({ length: 24 }, (_, i) => {
+            {Array.from({ length: 25 }, (_, i) => {
               const period = getPeriod(i, schedule);
               return (
                 <td
                   key={i}
-                  className={`border-[1px] border-[#EFEFEF] ${period.bgColor}`}
+                  className={`border-[1px] border-[#EFEFEF] w-[62px] h-[86px] ${period.bgColor}`}
                 >
                   {getText(i, schedule)}
                 </td>

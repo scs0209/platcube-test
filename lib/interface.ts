@@ -47,6 +47,8 @@ export interface TimePeriod {
   end: number;
   bgColor: string;
   text: string;
+  top?: number;
+  height?: number;
 }
 
 export interface ByWeekNumberCount {

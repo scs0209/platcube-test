@@ -28,27 +28,25 @@ const NoticeSection = () => {
   return (
     <section className="h-[540px] overflow-y-auto px-8 py-4">
       <h3 className="text-[16px] text-[#B9B9B9]">공지사항</h3>
-      <h1 className="text-[24px]">사내공지</h1>
+      <h1 className="text-[24px] mb-[40px]">사내공지</h1>
       {data?.seeNotices.noticeList.map((notice) => (
-        <div key={notice.ntc_id}>
-          <div className="flex">
-            <Image
-              src={notice.creatorImg || "/avatar.png"}
-              alt={notice.name}
-              width={100}
-              height={100}
-              className="h-8 w-8 rounded-md"
-            />
-            <div className="text-[16px]">
-              <h3>{notice.title}</h3>
-              <div className="text-[#B9B9B9]">
-                <span>
-                  {notice.name} {notice.rank}
-                </span>
-                <span>{notice.createdAt}</span>
-              </div>
-              <p>{notice.text}</p>
+        <div key={notice.ntc_id} className="flex mb-[20px]">
+          <Image
+            src={notice.creatorImg || "/avatar.png"}
+            alt={notice.name}
+            width={100}
+            height={100}
+            className="h-[42px] w-[42px] rounded-md"
+          />
+          <div className="text-[16px] px-4 mb-2">
+            <h3 className="font-bold">{notice.title}</h3>
+            <div className="text-[#B9B9B9] mb-[20px]">
+              <span className="mr-4">
+                {notice.name} {notice.rank}
+              </span>
+              <span>{notice.createdAt}</span>
             </div>
+            <p>{notice.text}</p>
           </div>
         </div>
       ))}
