@@ -1,6 +1,8 @@
-import { Statistics } from "@/lib/interface";
-import React from "react";
 import { LineChart, ResponsiveContainer, XAxis, Tooltip, Line } from "recharts";
+
+import { Statistics } from "@/lib/interface";
+
+import CustomTooltip from "./CustomToolTip";
 
 interface Props {
   data: Statistics;
@@ -32,12 +34,18 @@ const WeeklyStatistic = ({ data }: Props) => {
             dataKey="week"
             tickFormatter={(tickItem) => `${tickItem}주차`}
           />
-          <Tooltip />
+          <Tooltip content={CustomTooltip} />
           <Line
             type="monotone"
             dataKey="count"
             stroke="#2D8CFF"
-            activeDot={{ r: 8 }}
+            dot={false}
+            activeDot={{
+              r: 4,
+              stroke: "#2D8CFF",
+              strokeWidth: 2,
+              fill: "white",
+            }}
           />
         </LineChart>
       </ResponsiveContainer>
