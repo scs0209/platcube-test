@@ -47,6 +47,7 @@ const GenderStatistic = ({ data }: Props) => {
             align="right"
             layout="vertical"
             verticalAlign="middle"
+            className="font-normal"
           />
         </PieChart>
       </ResponsiveContainer>

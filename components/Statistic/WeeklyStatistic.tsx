@@ -14,7 +14,7 @@ const WeeklyStatistic = ({ data }: Props) => {
 
   return (
     <div className="w-[1331px]">
-      <h1 className="text-[24px]">통계</h1>
+      <h1 className="text-[24px] font-bold mb-[30px]">통계</h1>
       <h3 className="text-[16px]">2023년도 예약 환자 추이</h3>
       <ResponsiveContainer>
         <LineChart

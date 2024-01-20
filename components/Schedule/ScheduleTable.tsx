@@ -16,20 +16,21 @@ const ScheduleTable = ({ selectedDate, data }: Props) => {
     <table className="border-collapse border-[1px] border-[#EFEFEF] w-full">
       <thead>
         <tr>
-          <th className="border-[1px] border-[#EFEFEF] h-[39px]">
+          <th className="border-[1px] border-[#EFEFEF] h-[39px] font-bold">
             {formatDate(selectedDate)}
           </th>
           {Array.from({ length: 25 }, (_, i) => (
-            <th key={i} className="border-[1px] border-[#EFEFEF]">{`${i
-              .toString()
-              .padStart(2, "0")}`}</th>
+            <th
+              key={i}
+              className="border-[1px] border-[#EFEFEF] font-normal"
+            >{`${i.toString().padStart(2, "0")}`}</th>
           ))}
         </tr>
       </thead>
       <tbody>
         {data?.seeSchedule.map((schedule, index) => (
           <tr key={index}>
-            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[86px]">
+            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[86px] font-bold">
               {schedule.roomName}
               <span>{`${schedule.drName} ${schedule.drRank}`}</span>
             </td>

@@ -17,7 +17,7 @@ const PaginationBtn = ({ page, totalPages, setPage }: Props) => {
   const handleLastPage = () => setPage(totalPages);
 
   return (
-    <div className="flex gap-2 text-[#B3B3B3] items-center">
+    <div className="flex gap-2 text-[#B3B3B3] items-center font-bold">
       <Button onClick={handleFirstPage} disabled={page === 1} label={"<<"} />
       <Button onClick={handlePreviousPage} disabled={page === 1} label={"<"} />
       <span>페이지 </span>
