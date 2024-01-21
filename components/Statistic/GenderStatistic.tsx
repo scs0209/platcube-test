@@ -34,11 +34,15 @@ const GenderStatistic = ({ data }: Props) => {
             cy="50%"
             innerRadius={60}
             outerRadius={80}
+            startAngle={270}
+            endAngle={-270}
+            paddingAngle={0}
           >
             {genderData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
+                stroke={COLORS[index % COLORS.length]}
               />
             ))}
           </Pie>
