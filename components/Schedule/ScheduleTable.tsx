@@ -1,5 +1,6 @@
 import { ScheduleData, TimePeriod } from "@/lib/interface";
-import { formatDate, getPeriod, getText } from "@/lib/utils";
+import { formatDate } from "@/lib/utils/dateUtils";
+import { getPeriod, getText } from "@/lib/utils/scheduleUtils";
 
 interface Props {
   selectedDate: Date;
@@ -12,6 +13,7 @@ export const timePeriods: TimePeriod[] = [
 ];
 
 const ScheduleTable = ({ selectedDate, data }: Props) => {
+  console.log(data);
   return (
     <table className="border-collapse border-l-0 border-[1px] border-[#EFEFEF] w-full">
       <thead>
@@ -30,9 +32,13 @@ const ScheduleTable = ({ selectedDate, data }: Props) => {
       <tbody>
         {data?.seeSchedule.map((schedule, index) => (
           <tr key={index}>
-            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[91px] font-bold p-5">
-              {schedule.roomName}
-              <span className="mt-[6px]">{`${schedule.drName} ${schedule.drRank}`}</span>
+            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[91px] p-5">
+              <span className="font-bold">{schedule.roomName}</span>
+              <span className="mt-[6px]">
+                {`${schedule.drName} ${schedule.drRank} ${
+                  schedule.subDrUsed ? " (대체)" : ""
+                }`}{" "}
+              </span>
             </td>
             {Array.from({ length: 25 }, (_, i) => {
               const period = getPeriod(i, schedule);

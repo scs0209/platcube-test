@@ -22,7 +22,7 @@ const GenderStatistic = ({ data }: Props) => {
   };
 
   return (
-    <div className="w-[473px]">
+    <div className="w-[473px] pt-[70px]">
       <h3 className="text-[16px]">2023년도 예약자 성비</h3>
       <ResponsiveContainer>
         <PieChart width={221} height={221}>

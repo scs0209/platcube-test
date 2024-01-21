@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { Suspense } from "react";
+
+import { Loader2 } from "lucide-react";
 
 import { NoticeData } from "@/lib/interface";
-import { formatDateWithHour } from "@/lib/utils";
-import { Suspense } from "react";
-import { Loader2 } from "lucide-react";
+import { formatDateAndTime, getMonth } from "@/lib/utils/dateUtils";
 
 interface Props {
   data: NoticeData;
@@ -23,12 +24,14 @@ const NoticeList = ({ data }: Props) => {
               className="h-[42px] w-[42px] rounded-md"
             />
             <div className="text-[16px] px-4 mb-2">
-              <h3 className="font-bold">{notice.title}</h3>
+              <h3 className="font-bold">
+                {notice.title} ({getMonth(new Date(notice.createdAt))}월)
+              </h3>
               <div className="text-[#B9B9B9] mb-[20px]">
                 <span className="mr-4">
                   {notice.name} {notice.rank}
                 </span>
-                <span>{formatDateWithHour(new Date(notice.createdAt))}</span>
+                <span>{formatDateAndTime(new Date(notice.createdAt))}</span>
               </div>
               <p>{notice.text}</p>
             </div>

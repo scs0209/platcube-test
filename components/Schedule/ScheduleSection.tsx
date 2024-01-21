@@ -6,9 +6,15 @@ import { useSuspenseQuery } from "@apollo/client";
 
 import { ScheduleData } from "@/lib/interface";
 import { SEE_SCHEDULE } from "@/lib/query";
-import { formatDate, getNextDate, getPreviousDate } from "@/lib/utils";
+import {
+  formatDate,
+  getNextDate,
+  getPreviousDate,
+} from "@/lib/utils/dateUtils";
+
 import ScheduleTable from "./ScheduleTable";
 import Loader from "../Loader";
+import ArrowButton from "./ArrowButton";
 
 const ScheduleSection = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -29,18 +35,8 @@ const ScheduleSection = () => {
       <section className="p-10 w-[1764px]">
         <div className="flex items-center gap-2">
           <h1 className="text-[24px] font-bold">운영 스케줄</h1>
-          <button
-            onClick={handlePrevDay}
-            className="w-[20px] h-[20px] border-[1px] border-[#EFEFEF] rounded-md"
-          >
-            {"<"}
-          </button>
-          <button
-            onClick={handleNextDay}
-            className="w-[20px] h-[20px] border-[1px] border-[#EFEFEF] rounded-md"
-          >
-            {">"}
-          </button>
+          <ArrowButton direction="prev" onClick={handlePrevDay} />
+          <ArrowButton direction="next" onClick={handleNextDay} />
         </div>
         <ScheduleTable selectedDate={selectedDate} data={data} />
       </section>
