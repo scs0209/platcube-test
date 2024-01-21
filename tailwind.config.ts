@@ -19,6 +19,15 @@ const config: Config = {
       fontFamily: {
         apple: ["var(--font-apple)"],
       },
+      gridTemplateColumns: {
+        "26": "238px repeat(25, 39px)",
+      },
+      width: {
+        "15": "60px",
+      },
+    },
+    boxShadow: {
+      normal: "0 3px 12px #00000029",
     },
   },
   plugins: [],

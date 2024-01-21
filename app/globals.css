@@ -14,3 +14,7 @@
   background: #e5e5e5;
   border-radius: 5px;
 }
+
+.recharts-legend-item {
+  margin-bottom: 25px !important;
+}

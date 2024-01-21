@@ -2,7 +2,7 @@ import { LineChart, ResponsiveContainer, XAxis, Tooltip, Line } from "recharts";
 
 import { Statistics } from "@/lib/interface";
 
-import CustomTooltip from "./CustomToolTip";
+import CustomTooltip from "./CustomTooltip";
 
 interface Props {
   data: Statistics;
@@ -13,6 +13,8 @@ const WeeklyStatistic = ({ data }: Props) => {
     week: item.weekNumber,
     count: item.count,
   }));
+
+  console.log(data, weeklyData);
 
   return (
     <div className="w-[1331px]">
@@ -26,13 +28,15 @@ const WeeklyStatistic = ({ data }: Props) => {
           margin={{
             top: 5,
             right: 30,
-            left: 20,
-            bottom: 5,
+            bottom: 40,
+            left: 30,
           }}
         >
           <XAxis
             dataKey="week"
             tickFormatter={(tickItem) => `${tickItem}주차`}
+            tickLine={false}
+            interval={0}
           />
           <Tooltip content={CustomTooltip} />
           <Line

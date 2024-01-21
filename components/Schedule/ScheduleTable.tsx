@@ -7,16 +7,16 @@ interface Props {
 }
 
 export const timePeriods: TimePeriod[] = [
-  { start: 0, end: 12, bgColor: "bg-[#E9F3FF]", text: "오전" },
-  { start: 12, end: 24, bgColor: "bg-[#E9F3FF]", text: "오후" },
+  { start: 0, end: 12, bgColor: "#E9F3FF", text: "오전" },
+  { start: 12, end: 24, bgColor: "#E9F3FF", text: "오후" },
 ];
 
 const ScheduleTable = ({ selectedDate, data }: Props) => {
   return (
-    <table className="border-collapse border-[1px] border-[#EFEFEF] w-full">
+    <table className="border-collapse border-l-0 border-[1px] border-[#EFEFEF] w-full">
       <thead>
         <tr>
-          <th className="border-[1px] border-[#EFEFEF] h-[39px] font-bold">
+          <th className="border-l-0 border-[1px] border-[#EFEFEF] h-[39px] font-bold">
             {formatDate(selectedDate)}
           </th>
           {Array.from({ length: 25 }, (_, i) => (
@@ -30,16 +30,17 @@ const ScheduleTable = ({ selectedDate, data }: Props) => {
       <tbody>
         {data?.seeSchedule.map((schedule, index) => (
           <tr key={index}>
-            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[86px] font-bold">
+            <td className="flex flex-col border-b-[1px] border-[#EFEFEF] w-[238px] h-[91px] font-bold p-5">
               {schedule.roomName}
-              <span>{`${schedule.drName} ${schedule.drRank}`}</span>
+              <span className="mt-[6px]">{`${schedule.drName} ${schedule.drRank}`}</span>
             </td>
             {Array.from({ length: 25 }, (_, i) => {
               const period = getPeriod(i, schedule);
               return (
                 <td
                   key={i}
-                  className={`border-[1px] border-[#EFEFEF] w-[62px] h-[86px] ${period.bgColor}`}
+                  style={{ backgroundColor: period.bgColor }}
+                  className={`border-[1px] p-3 border-[#EFEFEF] w-[62px] h-[86px] ${period.bgColor}`}
                 >
                   {getText(i, schedule)}
                 </td>

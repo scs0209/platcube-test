@@ -23,8 +23,10 @@ const ScheduleSection = () => {
     setSelectedDate((prevDate) => getNextDate(prevDate));
   };
 
+  console.log(data);
+
   return (
-    <section className="p-8 w-[1764px]">
+    <section className="p-10 w-[1764px]">
       <div className="flex items-center gap-2">
         <h1 className="text-[24px] font-bold">운영 스케줄</h1>
         <button

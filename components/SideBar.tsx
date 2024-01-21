@@ -10,6 +10,7 @@ import {
   User,
   Wrench,
 } from "lucide-react";
+import Image from "next/image";
 
 type MenuItem = {
   icon: JSX.Element;
@@ -27,7 +28,23 @@ const menuItems: { items: MenuItem[]; className?: string }[] = [
   {
     items: [
       {
-        icon: <Home />,
+        icon: (
+          <Image
+            src="/Logo.png"
+            alt="logo"
+            width={200}
+            height={200}
+            className="h-9 w-9 rounded-md"
+          />
+        ),
+      },
+    ],
+    className: "mt-2 mb-10",
+  },
+  {
+    items: [
+      {
+        icon: <Home className="text-[#2D8CFF]" />,
       },
     ],
     className: "mb-10",
@@ -58,7 +75,7 @@ const menuItems: { items: MenuItem[]; className?: string }[] = [
         icon: <Headphones />,
       },
     ],
-    className: "mt-8",
+    className: "mt-16",
   },
   {
     items: [
@@ -75,7 +92,7 @@ const menuItems: { items: MenuItem[]; className?: string }[] = [
 
 const SideBar = () => {
   return (
-    <div className="h-full top-0 left-0 absolute w-[76px] bg-[#0E2044] text-white flex flex-col items-center">
+    <div className="h-full top-0 left-0 absolute w-[76px] bg-[#0E2044] text-white flex flex-col p-5 items-center">
       {menuItems.map((group, idx) => (
         <div key={idx} className={group.className}>
           {group.items.map((menu, idx) => (

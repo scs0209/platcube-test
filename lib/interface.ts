@@ -45,10 +45,11 @@ export interface ScheduleData {
 export interface TimePeriod {
   start: number;
   end: number;
-  bgColor: string;
+  bgColor?: string;
   text: string;
   top?: number;
   height?: number;
+  fillColor?: string;
 }
 
 export interface ByWeekNumberCount {

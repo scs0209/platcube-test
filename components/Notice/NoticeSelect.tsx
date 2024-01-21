@@ -15,7 +15,7 @@ const NoticeSelect = ({ value, options, onChange }: Props) => {
     <select
       value={value}
       onChange={handleChange}
-      className="border-[1px] border-[#F9F9F9] w-16 h-8 font-bold"
+      className="border-[1px] border-[#F9F9F9] w-15 h-8 font-bold text-black"
     >
       {options.map((value) => (
         <option key={value} value={value}>
